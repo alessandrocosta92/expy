@@ -23,12 +23,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('question_text', models.CharField(max_length=200)),
-                ('pub_date', models.DateTimeField(verbose_name=b'Data di pubblicazione')),
+                ('pub_date', models.DateTimeField(verbose_name=b'Data pubblicazione')),
             ],
         ),
         migrations.AddField(
             model_name='choice',
-            name='queestion',
+            name='question',
             field=models.ForeignKey(to='polls.Question'),
         ),
     ]
