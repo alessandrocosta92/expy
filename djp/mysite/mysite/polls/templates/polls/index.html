@@ -1,9 +1,17 @@
 <center>
+    <h1> Domande </h2>
 {% if latest_question_list %}
     {% for question in latest_question_list %}
-        <a href="/polls/{{ question.id }}/"> {{ question.question_text }}</a><br/>
+        <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a><br/>
     {% endfor %}
+    <br/>
+    {% if ordinamento == "asc" %}
+        <a href="{% url 'polls:index' %}?ord=desc" title="Ordina DESC">Ordina -> </a>
+    {% else %}
+        <a href="{% url 'polls:index' %}?ord=asc" title="Ordina ASC">Ordina <- </a>
+    {% endif %}
 {% else %}
-    <p>Nessuna domanda</p>
+    <p>Nessuna domanda trovata.</p>
 {% endif %}
+
 </center>
